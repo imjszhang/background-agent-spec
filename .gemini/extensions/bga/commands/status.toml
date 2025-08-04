@@ -1,0 +1,49 @@
+[command]
+name = "status"
+description = "查看BGA规划状态和执行进度"
+usage = "/bga:status [plan_id] [options]"
+
+[command.parameters]
+plan_id = { type = "string", required = false, description = "规划编号，不指定则显示所有规划" }
+detail = { type = "boolean", required = false, description = "显示详细信息" }
+reports = { type = "boolean", required = false, description = "包含执行报告摘要" }
+active_only = { type = "boolean", required = false, description = "只显示活跃规划（执行中或待执行）" }
+
+[command.examples]
+all_plans = "/bga:status"
+specific_plan = "/bga:status P001"
+detailed = "/bga:status P002 --detail"
+with_reports = "/bga:status P001 --detail --reports"
+active_only = "/bga:status --active-only"
+
+[command.help]
+text = """
+查看Background Agent规划的状态和执行进度。
+
+支持的参数：
+- plan_id: 可选，指定规划编号查看详细状态
+  不指定则显示所有规划的概览
+- detail: 可选，显示详细信息，包括：
+  * 任务完成进度
+  * 预估剩余时间
+  * 最近的状态变更
+- reports: 可选，包含执行报告摘要
+- active_only: 可选，只显示活跃规划
+
+状态信息包括：
+- 规划基本信息（ID、标题、状态）
+- 任务执行进度（已完成/总数）
+- 最后更新时间
+- 执行历史摘要
+"""
+
+[mcp]
+server = "bga-server"
+tool = "get_status"
+timeout = 30
+
+[mcp.mapping]
+target_plan = "plan_id"
+show_detail = "detail"
+include_reports = "reports"
+filter_active = "active_only"

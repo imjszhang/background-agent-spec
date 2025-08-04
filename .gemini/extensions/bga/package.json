@@ -1,0 +1,92 @@
+{
+  "name": "bga-gemini-extension",
+  "version": "1.4.0",
+  "description": "Background Agent (BGA) Gemini CLI Extension - 人机协作并行工作流系统",
+  "main": "bga-server.js",
+  "bin": {
+    "bga-server": "./bga-server.js"
+  },
+  "scripts": {
+    "start": "node bga-server.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "lint": "eslint *.js commands/*.js",
+    "format": "prettier --write *.js commands/*.js",
+    "docs": "jsdoc -d docs *.js"
+  },
+  "keywords": [
+    "bga",
+    "background-agent",
+    "workflow",
+    "gemini",
+    "cli",
+    "extension",
+    "mcp",
+    "automation",
+    "parallel-execution"
+  ],
+  "author": "BGA Team",
+  "license": "MIT",
+  "homepage": "https://github.com/background-agent/bga-gemini-extension",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/background-agent/bga-gemini-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/background-agent/bga-gemini-extension/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^2.8.0",
+    "jsdoc": "^4.0.0",
+    "@types/node": "^18.0.0"
+  },
+  "peerDependencies": {
+    "gemini-cli": ">=1.0.0"
+  },
+  "files": [
+    "bga-server.js",
+    "commands/",
+    "BGA.md",
+    "gemini-extension.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["text", "lcov", "html"]
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es2021": true
+    },
+    "extends": ["eslint:recommended"],
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": ["error", 4],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"]
+    }
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "none"
+  }
+}

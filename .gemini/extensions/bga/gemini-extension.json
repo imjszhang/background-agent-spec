@@ -1,0 +1,65 @@
+{
+  "name": "bga",
+  "version": "1.4.0",
+  "description": "Background Agent (BGA) - 人机协作并行工作流系统的Gemini CLI扩展",
+  "author": "BGA Team",
+  "homepage": "https://github.com/background-agent/bga-gemini-extension",
+  "mcpServers": {
+    "bga-server": {
+      "command": "node bga-server.js",
+      "args": [],
+      "env": {
+        "BGA_WORKSPACE": ".",
+        "BGA_TODOS_DIR": "todos",
+        "BGA_VERSION": "1.4.0"
+      }
+    }
+  },
+  "contextFileName": "BGA.md",
+  "excludeTools": [
+    "run_shell_command(rm -rf)",
+    "run_shell_command(del /f /s /q)",
+    "run_shell_command(format)",
+    "delete_file(*.md)",
+    "delete_file(plan.json)",
+    "delete_file(package.json)"
+  ],
+  "settings": {
+    "bga": {
+      "autoFeedback": true,
+      "parallelExecution": true,
+      "maxConcurrentPlans": 3,
+      "planIdRange": {
+        "start": "P001", 
+        "end": "P999"
+      },
+      "reportRetention": 30,
+      "intentRecognition": {
+        "enabled": true,
+        "confidenceThreshold": 7,
+        "autoTriggerLevel1": true,
+        "autoTriggerLevel2": false,
+        "autoTriggerLevel3": false
+      },
+      "executionSafety": {
+        "requireConfirmation": true,
+        "backupBeforeExecution": true,
+        "maxExecutionTime": "4h"
+      }
+    }
+  },
+  "dependencies": {
+    "node": ">=16.0.0",
+    "gemini-cli": ">=1.0.0"
+  },
+  "permissions": [
+    "filesystem:read",
+    "filesystem:write",
+    "process:spawn",
+    "network:none"
+  ],
+  "compatibility": {
+    "geminiVersion": ">=1.0.0",
+    "platforms": ["win32", "linux", "darwin"]
+  }
+}

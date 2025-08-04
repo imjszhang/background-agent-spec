@@ -1,0 +1,41 @@
+[command]
+name = "plan"
+description = "创建新的BGA规划"
+usage = "/bga:plan <task_description>"
+
+[command.parameters]
+description = { type = "string", required = true, description = "任务描述或规划需求" }
+title = { type = "string", required = false, description = "规划标题（可选）" }
+priority = { type = "string", required = false, description = "优先级：high|medium|low，默认medium" }
+estimated_time = { type = "string", required = false, description = "预估总时间，例如：2h、30min" }
+
+[command.examples]
+basic = "/bga:plan 重构项目代码结构，更新依赖包，修复已知bug"
+with_title = "/bga:plan --title='数据库迁移项目' 将MySQL数据迁移到PostgreSQL"
+with_priority = "/bga:plan --priority=high 紧急修复生产环境安全漏洞"
+
+[command.help]
+text = """
+创建新的Background Agent规划。系统将自动分析任务复杂度，
+生成详细的执行计划，包括任务分解、依赖关系和时间估算。
+
+支持的参数：
+- description: 必填，详细描述要完成的任务或目标
+- title: 可选，为规划指定一个清晰的标题
+- priority: 可选，设置规划优先级（high/medium/low）
+- estimated_time: 可选，预估完成时间
+
+创建成功后将生成规划编号（P001-P999），
+可使用 /bga:execute <plan_id> 执行规划。
+"""
+
+[mcp]
+server = "bga-server"
+tool = "create_plan"
+timeout = 60
+
+[mcp.mapping]
+user_input = "description"
+plan_title = "title"
+plan_priority = "priority" 
+plan_estimated_time = "estimated_time"
