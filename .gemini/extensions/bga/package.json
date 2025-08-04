@@ -50,9 +50,6 @@
     "jsdoc": "^4.0.0",
     "@types/node": "^18.0.0"
   },
-  "peerDependencies": {
-    "@google/gemini-cli": ">=1.0.0"
-  },
   "files": [
     "bga-server.js",
     "commands/",
