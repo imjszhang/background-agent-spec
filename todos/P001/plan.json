@@ -1,0 +1,108 @@
+{
+  "plan_id": "P001",
+  "title": "Background Agent 规范升级到 V1.4.0",
+  "description": "将spec.backgroundAgent.README.md从V1.3.0升级到V1.4.0，集成反馈机制自动化增强功能，包括意图识别后反馈更新和执行完毕后结果评估机制",
+  "created_at": "2025-08-04T13:26:12+08:00",
+  "updated_at": "2025-08-04T13:26:12+08:00",
+  "status": "pending",
+  "referenced_files": {
+    "core_files": [
+      "docs/specs/spec.backgroundAgent.README.md"
+    ],
+    "config_files": [],
+    "documentation": [
+      "README.md"
+    ],
+    "test_files": []
+  },
+  "tasks": [
+    {
+      "id": 1,
+      "title": "创建版本备份目录结构",
+      "description": "在docs/specs/目录下创建层级目录结构：versions/spec.backgroundAgent.README/v1.3.0/，按照文档名→版本号的层级组织",
+      "status": "pending",
+      "dependencies": [],
+      "estimated_time": "10min",
+      "related_files": ["docs/specs/"]
+    },
+    {
+      "id": 2,
+      "title": "备份当前V1.3.0版本",
+      "description": "将当前的spec.backgroundAgent.README.md复制到versions/spec.backgroundAgent.README/v1.3.0/目录下",
+      "status": "pending",
+      "dependencies": [1],
+      "estimated_time": "5min",
+      "related_files": ["docs/specs/spec.backgroundAgent.README.md"]
+    },
+    {
+      "id": 3,
+      "title": "更新版本信息到V1.4.0",
+      "description": "修改文档头部的版本信息，更新版本号为v1.4.0，发布日期为2025-08-04",
+      "status": "pending",
+      "dependencies": [2],
+      "estimated_time": "15min",
+      "related_files": ["docs/specs/spec.backgroundAgent.README.md"]
+    },
+    {
+      "id": 4,
+      "title": "添加意图识别后反馈更新机制",
+      "description": "在用户意图识别章节添加自动反馈更新机制，包括识别结果记录、置信度评估、风险评估等内容",
+      "status": "pending",
+      "dependencies": [3],
+      "estimated_time": "45min",
+      "related_files": ["docs/specs/spec.backgroundAgent.README.md"]
+    },
+    {
+      "id": 5,
+      "title": "添加执行完毕后反馈机制",
+      "description": "在执行结果文档生成章节添加自动结果评估和反馈更新机制，包括质量评估、问题发现、优化建议等",
+      "status": "pending",
+      "dependencies": [4],
+      "estimated_time": "45min",
+      "related_files": ["docs/specs/spec.backgroundAgent.README.md"]
+    },
+    {
+      "id": 6,
+      "title": "更新技术架构图",
+      "description": "修改Mermaid技术架构图，集成新的反馈自动化组件，包括意图识别反馈器和执行结果评估器",
+      "status": "pending",
+      "dependencies": [5],
+      "estimated_time": "30min",
+      "related_files": ["docs/specs/spec.backgroundAgent.README.md"]
+    },
+    {
+      "id": 7,
+      "title": "添加V1.4.0版本历史记录",
+      "description": "在版本管理章节添加V1.4.0的版本历史，记录主要改进和新增组件",
+      "status": "pending",
+      "dependencies": [6],
+      "estimated_time": "20min",
+      "related_files": ["docs/specs/spec.backgroundAgent.README.md"]
+    },
+    {
+      "id": 8,
+      "title": "文档一致性检查",
+      "description": "全面检查文档的一致性，确保所有章节都与V1.4.0的新功能保持一致",
+      "status": "pending",
+      "dependencies": [7],
+      "estimated_time": "25min",
+      "related_files": ["docs/specs/spec.backgroundAgent.README.md"]
+    },
+    {
+      "id": 9,
+      "title": "创建版本管理文档",
+      "description": "创建单独的版本管理文档VERSION_MANAGEMENT.md，详细记录各版本的变更历史和升级指南",
+      "status": "pending",
+      "dependencies": [8],
+      "estimated_time": "30min",
+      "related_files": ["docs/specs/VERSION_MANAGEMENT.md"]
+    }
+  ],
+  "execution_history": [],
+  "metadata": {
+    "total_tasks": 9,
+    "estimated_total_time": "3hours 45min",
+    "complexity": "medium",
+    "priority": "high"
+  }
+}
